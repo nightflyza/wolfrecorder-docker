@@ -4,7 +4,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y lsb-release apt-transport-https ca-certificates curl gnupg2 && curl -fsSL https://packages.sury.org/php/apt.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/php.gpg && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list && apt update
 
-RUN apt install -y wget gnupg2 software-properties-common dirmngr mariadb-server mariadb-client libmariadb-dev default-libmysqlclient-dev apache2 libapache2-mod-php8.3 php8.3-cli php8.3-mysql php8.3-mysqli php8.3-mbstring php8.3-bcmath php8.3-curl php8.3-gd php8.3-snmp php8.3-soap php8.3-zip php8.3-imap php8.3-tokenizer php8.3-xml php8.3-xmlreader php8.3-xmlwriter php8.3-simplexml php8.3-sqlite3 php8.3-sockets php8.3-opcache php8.3-pdo php8.3-pdo-sqlite php8.3-phar php8.3-posix php8.3-memcached php8.3-redis memcached redis ffmpeg graphviz sudo ipset vim-tiny elinks mc nano nmap mtr expect git net-tools netdiag htop rsyslog perl cron supervisor dialog iputils-ping inetutils-traceroute dnsutils
+RUN apt install -y wget gnupg2 software-properties-common dirmngr mariadb-server mariadb-client libmariadb-dev default-libmysqlclient-dev apache2 libapache2-mod-php8.3 php8.3-cli php8.3-mysql php8.3-mysqli php8.3-mbstring php8.3-bcmath php8.3-curl php8.3-gd php8.3-snmp php8.3-soap php8.3-zip php8.3-imap php8.3-tokenizer php8.3-xml php8.3-xmlreader php8.3-xmlwriter php8.3-simplexml php8.3-sqlite3 php8.3-sockets php8.3-opcache php8.3-pdo php8.3-pdo-sqlite php8.3-phar php8.3-posix php8.3-memcached php8.3-redis memcached redis ffmpeg sudo vim-tiny elinks expect net-tools netdiag htop rsyslog cron supervisor dialog iputils-ping inetutils-traceroute dnsutils
+
+RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod headers expires
 

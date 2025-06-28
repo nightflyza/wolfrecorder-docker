@@ -52,8 +52,8 @@ if [ -f "$WR_SERIAL_FILE" ]; then
     echo "WR serial read: [$NEW_WRSERIAL]"
 
     if [ -n "$NEW_WRSERIAL" ]; then
-        perl -i -pe "s/WR00000000000000000000000000000000/${NEW_WRSERIAL}/g" /bin/wrapi
-        echo "WR serial patched into /bin/wrapi"
+      sed -i "s/WR00000000000000000000000000000000/${NEW_WRSERIAL}/g" /bin/wrapi
+      echo "WR serial patched into /bin/wrapi"
     else
         echo "WR serial file is empty!"
     fi
