@@ -5,7 +5,6 @@ mysqld_safe &
 sleep 3
 until mysqladmin ping &>/dev/null; do sleep 1; done
 
-# Створюємо користувача тільки, якщо БД ще нема
 DB_EXISTS=$(mysql -u root -sse "SHOW DATABASES LIKE 'wr'")
 if [ "$DB_EXISTS" != "wr" ]; then
     mysql -u root <<EOF
@@ -17,7 +16,7 @@ EOF
     mysql -u root < /var/www/html/wr/dist/dumps/wolfrecorder.sql
     mysql -u root --database=wr < /var/www/html/wr/dist/dumps/defaultstorage.sql
 fi
-
+#TODO: think about this
 #MYSQL_INI="/var/www/html/wr/config/mysql.ini"
 #if [ -f "$MYSQL_INI" ]; then
 #    sed -i 's/^username = .*/username = "mylogin"/' "$MYSQL_INI"
