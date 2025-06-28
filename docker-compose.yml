@@ -1,0 +1,18 @@
+services:
+  wolfrecorder:
+    build: .
+    container_name: wolfrec
+    ports:
+      - "9090:80"
+    volumes:
+      - wr_storage:/wrstorage
+      - wr_web:/var/www/html/wr
+      - wr_db:/var/lib/mysql
+      - wr_bin:/data/bin
+    restart: unless-stopped
+
+volumes:
+  wr_storage:
+  wr_web:
+  wr_db:
+  wr_bin:
