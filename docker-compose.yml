@@ -2,6 +2,7 @@ services:
   wolfrecorder:
     build: .
     container_name: wolfrec
+    image: wolfrecorder:latest
     ports:
       - "9090:80"
     volumes:
