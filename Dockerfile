@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y lsb-release apt-transport-https ca-certificates curl gnupg2 && curl -fsSL https://packages.sury.org/php/apt.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/php.gpg && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list && apt update
 
-RUN apt install -y wget gnupg2 software-properties-common dirmngr mariadb-server mariadb-client libmariadb-dev default-libmysqlclient-dev apache2 libapache2-mod-php8.4 php8.4-cli php8.4-mysql php8.4-mysqli php8.4-mbstring php8.4-bcmath php8.4-curl php8.4-gd php8.4-snmp php8.4-soap php8.4-zip php8.4-imap php8.4-tokenizer php8.4-xml php8.4-xmlreader php8.4-xmlwriter php8.4-simplexml php8.4-sqlite3 php8.4-sockets php8.4-opcache php8.4-pdo php8.4-pdo-sqlite php8.4-phar php8.4-posix php8.4-memcached php8.4-redis memcached redis ffmpeg sudo vim-tiny elinks expect net-tools netdiag htop rsyslog cron supervisor dialog iputils-ping inetutils-traceroute dnsutils
+RUN apt install -y wget gnupg2 dirmngr mariadb-server mariadb-client libmariadb-dev default-libmysqlclient-dev apache2 libapache2-mod-php8.4 php8.4-cli php8.4-mysql php8.4-mysqli php8.4-mbstring php8.4-bcmath php8.4-curl php8.4-gd php8.4-snmp php8.4-soap php8.4-zip php8.4-imap php8.4-tokenizer php8.4-xml php8.4-xmlreader php8.4-xmlwriter php8.4-simplexml php8.4-sqlite3 php8.4-sockets php8.4-opcache php8.4-pdo php8.4-pdo-sqlite php8.4-phar php8.4-posix php8.4-memcached php8.4-redis memcached redis ffmpeg sudo vim-tiny elinks expect net-tools htop rsyslog cron supervisor dialog iputils-ping inetutils-traceroute dnsutils
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
